@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+{% load static %}
+      {% block contant %}
+      <!-- contact section -->
+      <body class="main-layout position_head">
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <form id="request" method="post" class="main_form" action="">
+                     {% csrf_token %}
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <h3>Contact Us</h3>
+                        </div>
+                        <div class="col-md-12 ">
+                            {% for error in form.name.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Name" type="text" name="name" > 
+                        </div>
+                        <div class="col-md-12 ">
+                            {% for error in form.phone.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Phone Number" type="phone" name="phone"> 
+                        </div>
+
+                        <div class="col-md-12 ">
+                            {% for error in form.email.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email" type="email" name="email">                          
+                        </div>
+                        <div class="col-md-12 ">
+                            {% for error in form.message.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactusmess" placeholder="Message" type="text" name="message">
+                        </div>
+                        <div class="col-md-12">
+                           <button type="submit" class="send_btn">Send</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="map_section">
+               <div id="map">
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+      <!-- end contact section -->
+      {% endblock contant %}
+      
