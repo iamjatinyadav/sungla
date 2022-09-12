@@ -96,7 +96,7 @@ def contact(request):
 
 class ContactFormView(FormView):
     template_name = "base/contact.html"
-    success_url = "base/index.html"
+    # success_url = "base/index.html"
 
     def get(self, request, *args, **kwargs):
         return render(request, 'base/contact.html')
@@ -142,9 +142,9 @@ class ContactFormView(FormView):
                 contact = Contact(name=name, phone=phone, email=email, message=message)
                 contact.save()
                 return redirect("index")
-
+            #print(form.errors)
             context = {'form': form}
-            return redirect('/', context)
+            return render(request,'base/contact.html', context)
 
 
 """
